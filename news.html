@@ -1,0 +1,399 @@
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأخبار - عبدالسند يمامة</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .news-section {
+            padding: 80px 5%;
+        }
+        
+        .news-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 12px 25px;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .news-image {
+            height: 220px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .news-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+        }
+        
+        .news-card:hover .news-image::before {
+            animation: shine 1.5s ease;
+        }
+        
+        .news-content {
+            padding: 25px;
+        }
+        
+        .news-category {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .news-content h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            line-height: 1.4;
+        }
+        
+        .news-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .news-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--gray);
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        
+        .news-date {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .breaking-news {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #ff4757;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .news-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .load-more {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .news-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .news-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <header class="header" id="header">
+        <div class="header-top">
+            <div class="logo" onclick="location.href='../index.html'">
+                <div class="logo-icon">AY</div>
+                <div class="logo-text">
+                    <h1>عبدالسند يمامة الثانوية المشتركة</h1>
+                    <p>أخبار المدرسة</p>
+                </div>
+            </div>
+            
+            <div class="login-icons">
+                <a href="login_student.html" class="login-btn student">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>تسجيل دخول طالب</span>
+                </a>
+                <a href="login_teacher.html" class="login-btn teacher">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span>تسجيل دخول معلم</span>
+                </a>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="../index.html">الرئيسية</a></li>
+                <li><a href="activities.html">الأنشطة</a></li>
+                <li><a href="news.html" class="active">الأخبار</a></li>
+                <li><a href="complaints.html">الشكاوى</a></li>
+                <li><a href="forum_students.html">منتدى الطلاب</a></li>
+                <li><a href="forum_teachers.html">منتدى المعلمين</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- رأس الصفحة -->
+    <section class="page-header">
+        <h1 data-aos="fade-down">أخبار المدرسة</h1>
+        <p data-aos="fade-up">تابع آخر المستجدات والأخبار والإعلانات الهامة في مدرستنا</p>
+    </section>
+
+    <!-- قسم الأخبار -->
+    <section class="news-section">
+        <div class="news-filters">
+            <button class="filter-btn active" data-filter="all">جميع الأخبار</button>
+            <button class="filter-btn" data-filter="announcements">إعلانات هامة</button>
+            <button class="filter-btn" data-filter="events">الفعاليات</button>
+            <button class="filter-btn" data-filter="achievements">الإنجازات</button>
+        </div>
+        
+        <div class="news-grid">
+            <!-- أخبار سيتم تعبئتها بالجافاسكريبت -->
+        </div>
+        
+        <div class="load-more">
+            <button class="btn secondary" id="loadMoreNews">
+                <i class="fas fa-plus"></i>
+                تحميل المزيد من الأخبار
+            </button>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo-icon">AY</div>
+                <div class="logo-text">
+                    <h3>عبدالسند يمامة الثانوية المشتركة</h3>
+                    <p>مدرسة رائدة في تقديم التعليم المتميز</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="activities.html">الأنشطة</a>
+                <a href="news.html">الأخبار</a>
+                <a href="complaints.html">الشكاوى</a>
+            </div>
+            <div class="footer-info">
+                <p><i class="fas fa-phone"></i> 01234567890</p>
+                <p><i class="fas fa-envelope"></i> info@abdsand-school.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> محافظة ×× – مدينة ××</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة &copy; 2023 عبدالسند يمامة الثانوية المشتركة</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="../auth.js"></script>
+    <script src="../script.js"></script>
+    <script>
+        AOS.init();
+        
+        // بيانات الأخبار
+        const newsData = [
+            {
+                category: "announcements",
+                title: "بداية الفصل الدراسي الثاني",
+                content: "تنطلق الدراسة في الفصل الدراسي الثاني يوم الأحد القادم الموافق 15 يناير 2024. يرجى من جميع الطلاب الحضور في الموعد المحدد والالتزام بالزي المدرسي.",
+                date: "10 يناير 2024",
+                views: 245,
+                icon: "fa-bullhorn",
+                badge: "إعلان",
+                breaking: true
+            },
+            {
+                category: "events", 
+                title: "مسابقة أوائل الطلبة",
+                content: "تنظم المدرسة مسابقة أوائل الطلبة في جميع المواد الدراسية. آخر موعد للتسجيل هو 20 يناير 2024. الجوائز قيمة للفائزين الأوائل.",
+                date: "5 يناير 2024",
+                views: 189,
+                icon: "fa-trophy",
+                badge: "فعالية"
+            },
+            {
+                category: "achievements",
+                title: "فوز فريق الروبوتات",
+                content: "فاز فريق الروبوتات بالمدرسة بالمركز الأول في المسابقة الإقليمية للروبوتات التي أقيمت الأسبوع الماضي. نتائج مبهرة تعكس تميز طلابنا.",
+                date: "28 ديسمبر 2023", 
+                views: 312,
+                icon: "fa-award",
+                badge: "إنجاز"
+            }
+        ];
+
+        // تحميل الأخبار
+        function loadNews() {
+            const newsGrid = document.querySelector('.news-grid');
+            newsGrid.innerHTML = '';
+
+            newsData.forEach((news, index) => {
+                const newsCard = document.createElement('div');
+                newsCard.className = `news-card news-item`;
+                newsCard.setAttribute('data-category', news.category);
+                newsCard.style.animationDelay = `${index * 0.1}s`;
+                
+                newsCard.innerHTML = `
+                    <div class="news-image">
+                        <i class="fas ${news.icon}"></i>
+                        ${news.breaking ? '<div class="breaking-news">عاجل</div>' : ''}
+                        <div class="news-badge">${news.badge}</div>
+                    </div>
+                    <div class="news-content">
+                        <span class="news-category">${getCategoryText(news.category)}</span>
+                        <h3>${news.title}</h3>
+                        <p>${news.content}</p>
+                        <div class="news-meta">
+                            <div class="news-date">
+                                <i class="fas fa-calendar"></i>
+                                <span>${news.date}</span>
+                            </div>
+                            <div class="news-views">
+                                <i class="fas fa-eye"></i>
+                                <span>${news.views}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                newsGrid.appendChild(newsCard);
+            });
+
+            // تطبيق تأثير الظهور
+            initNewsAnimations();
+        }
+
+        function getCategoryText(category) {
+            const categories = {
+                'announcements': 'إعلان هام',
+                'events': 'فعالية', 
+                'achievements': 'إنجاز'
+            };
+            return categories[category] || category;
+        }
+
+        function initNewsAnimations() {
+            const newsItems = document.querySelectorAll('.news-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            newsItems.forEach(item => {
+                observer.observe(item);
+            });
+        }
+
+        // فلترة الأخبار
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                const newsCards = document.querySelectorAll('.news-card');
+                
+                newsCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // تحميل المزيد
+        document.getElementById('loadMoreNews').addEventListener('click', function() {
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحم

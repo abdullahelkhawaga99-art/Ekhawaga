@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشكاوى - عبدالسند يمامة</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .complaints-section {
+            padding: 60px 5%;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .complaint-form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .complaint-form-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .complaint-info {
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: fit-content;
+            transition: all 0.3s ease;
+        }
+        
+        .complaint-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1rem;
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Cairo', sans-serif;
+            background: #f8fafc;
+        }
+        
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+            outline: none;
+            background: white;
+            transform: translateY(-2px);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+            line-height: 1.6;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .info-card {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-right: 4px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateX(-5px);
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .info-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.3rem;
+        }
+        
+        .info-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        
+        .process-steps {
+            margin-top: 30px;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s ease;
+        }
+        
+        .step:hover {
+            transform: translateX(-5px);
+        }
+        
+        .step:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 8px rgba(0,102,204,0.3);
+        }
+        
+        .step-content h4 {
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .step-content p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .privacy-notice {
+            background: #fff8e1;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 25px;
+            border: 1px solid #ffd54f;
+            transition: all 0.3s ease;
+        }
+        
+        .privacy-notice:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,213,79,0.2);
+        }
+        
+        .privacy-notice h4 {
+            color: #e65100;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .privacy-notice p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .full-width {
+            width: 100%;
+        }
+        
+        .success-message {
+            background: #e8f5e9;
+            border: 1px solid #4caf50;
+            color: #2e7d32;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: none;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .complaints-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <header class="header" id="header">
+        <div class="header-top">
+            <div class="logo" onclick="location.href='../index.html'">
+                <div class="logo-icon">AY</div>
+                <div class="logo-text">
+                    <h1>عبدالسند يمامة الثانوية المشتركة</h1>
+                    <p>تقديم الشكاوى والاقتراحات</p>
+                </div>
+            </div>
+            
+            <div class="login-icons">
+                <a href="login_student.html" class="login-btn student">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>تسجيل دخول طالب</span>
+                </a>
+                <a href="login_teacher.html" class="login-btn teacher">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span>تسجيل دخول معلم</span>
+                </a>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="../index.html">الرئيسية</a></li>
+                <li><a href="activities.html">الأنشطة</a></li>
+                <li><a href="news.html">الأخبار</a></li>
+                <li><a href="complaints.html" class="active">الشكاوى</a></li>
+                <li><a href="forum_students.html">منتدى الطلاب</a></li>
+                <li><a href="forum_teachers.html">منتدى المعلمين</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- رأس الصفحة -->
+    <section class="page-header">
+        <h1 data-aos="fade-down">تقديم الشكاوى والاقتراحات</h1>
+        <p data-aos="fade-up">نرحب بملاحظاتكم واقتراحاتكم لتحسين تجربة التعليم في مدرستنا</p>
+    </section>
+
+    <!-- قسم الشكاوى -->
+    <section class="complaints-section">
+        <!-- نموذج تقديم الشكوى -->
+        <div class="complaint-form-container" data-aos="fade-right">
+            <h2 style="color: var(--primary-dark); margin-bottom: 30px; font-size: 1.8rem;">نموذج تقديم شكوى أو اقتراح</h2>
+            
+            <div class="success-message" id="successMessage">
+                <i class="fas fa-check-circle"></i>
+                <span id="successText"></span>
+            </div>
+            
+            <form id="complaintForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="complaintName"><i class="fas fa-user"></i> الاسم بالكامل</label>
+                        <input type="text" id="complaintName" placeholder="اكتب اسمك الثلاثي" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="complaintPhone"><i class="fas fa-phone"></i> رقم الهاتف</label>
+                        <input type="tel" id="complaintPhone" placeholder="رقم الهاتف للتواصل">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="complaintType"><i class="fas fa-envelope"></i> نوع الرسالة</label>
+                        <select id="complaintType" required>
+                            <option value="">اختر نوع الرسالة</option>
+                            <option value="complaint">شكوى</option>
+                            <option value="suggestion">اقتراح</option>
+                            <option value="inquiry">استفسار</option>
+                            <option value="appreciation">شكر وتقدير</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="complaintCategory"><i class="fas fa-folder"></i> القسم المعني</label>
+                        <select id="complaintCategory" required>
+                            <option value="">اختر القسم المعني</option>
+                            <option value="administration">الإدارة المدرسية</option>
+                            <option value="teachers">المعلمين</option>
+                            <option value="curriculum">المناهج الدراسية</option>
+                            <option value="facilities">المرافق والتجهيزات</option>
+                            <option value="activities">الأنشطة المدرسية</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="complaintSubject"><i class="fas fa-heading"></i> عنوان الرسالة</label>
+                    <input type="text" id="complaintSubject" placeholder="اكتب عنواناً موجزاً للرسالة" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="complaintMessage"><i class="fas fa-comment"></i> تفاصيل الرسالة</label>
+                    <textarea id="complaintMessage" placeholder="اكتب تفاصيل شكواك أو اقتراحك هنا..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="complaintPriority"><i class="fas fa-exclamation-circle"></i> درجة الأهمية</label>
+                    <select id="complaintPriority">
+                        <option value="low">منخفضة</option>
+                        <option value="medium" selected>متوسطة</option>
+                        <option value="high">عالية</option>
+                        <option value="urgent">عاجلة</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn primary full-width" style="padding: 15px; font-size: 1.1rem;">
+                    <i class="fas fa-paper-plane"></i>
+                    إرسال الرسالة
+                </button>
+            </form>
+            
+            <div class="privacy-notice">
+                <h4><i class="fas fa-shield-alt"></i> ملاحظة هامة</h4>
+                <p>جميع الشكاوى والاقتراحات تتعامل معها إدارة المدرسة بسرية تامة. نضمن لكم أن جميع الملاحظات سيتم دراستها بعناية واتخاذ الإجراءات المناسبة بشأنها. متوسط وقت الرد هو 3 أيام عمل.</p>
+            </div>
+        </div>
+        
+        <!-- معلومات عن عملية الشكاوى -->
+        <div class="complaint-info" data-aos="fade-left">
+            <div class="info-card">
+                <h3><i class="fas fa-info-circle"></i> معلومات هامة</h3>
+                <p>نظام تقديم الشكاوى والاقتراحات يهدف إلى تحسين جودة الخدمات التعليمية في مدرستنا. نرحب بملاحظاتكم البناءة ونعدكم بالرد خلال 3 أيام عمل.</p>
+            </div>
+            
+            <div class="info-card">
+                <h3><i class="fas fa-envelope-open-text"></i> طرق التواصل الأخرى</h3>
+                <p>يمكنكم أيضاً التواصل معنا عبر:</p>
+                <ul style="color: var(--gray); margin-top: 15px; padding-right: 20px; line-height: 1.8;">
+                    <li><i class="fas fa-envelope"></i> البريد الإلكتروني: complaints@abdsand-school.com</li>
+                    <li><i class="fas fa-phone"></i> هاتف المدرسة: 01234567890</li>
+                    <li><i class="fas fa-map-marker-alt"></i> مكتب شكاوى الطلاب: غرفة 204</li>
+                    <li><i class="fas fa-clock"></i> أوقات الدوام: 8 صباحاً - 2 ظهراً</li>
+                </ul>
+            </div>
+            
+            <div class="process-steps">
+                <h3 style="color: var(--primary-dark); margin-bottom: 25px; font-size: 1.4rem;">
+                    <i class="fas fa-cogs"></i> مراحل معالجة الشكاوى
+                </h3>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>استلام الشكوى</h4>
+                        <p>يتم استلام الشكوى وتسجيلها في سجل خاص برقم متابعة فريد</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>الدراسة الأولية</h4>
+                        <p>تقوم إدارة الشكاوى بدراسة الطلب وتحديد الجهة المعنية</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>المعالجة</h4>
+                        <p>يتم تحويل الشكوى للقسم المختص لاتخاذ الإجراء المناسب</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>المتابعة والرد</h4>
+                        <p>يتم متابعة الشكوى حتى حلها وإبلاغ مقدمها بالنتيجة</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-card" style="background: #e8f5e9; border-right-color: #4caf50;">
+                <h3 style="color: #2e7d32;"><i class="fas fa-check-circle"></i> شكاوى تمت معالجتها</h3>
+                <p>خلال الشهر الماضي، تم استلام 47 شكوى واقتراح، وتمت معالجة 98% منها بنجاح. متوسط وقت المعالجة: 2.5 يوم.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo-icon">AY</div>
+                <div class="logo-text">
+                    <h3>عبدالسند يمامة الثانوية المشتركة</h3>
+                    <p>مدرسة رائدة في تقديم التعليم المتميز</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="activities.html">الأنشطة</a>
+                <a href="news.html">الأخبار</a>
+                <a href="complaints.html">الشكاوى</a>
+            </div>
+            <div class="footer-info">
+                <p><i class="fas fa-phone"></i> 01234567890</p>
+                <p><i class="fas fa-envelope"></i> info@abdsand-school.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> محافظة ×× – مدينة ××</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة &copy; 2023 عبدالسند يمامة الثانوية المشتركة</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="../auth.js"></script>
+    <script src="../script.js"></script>
+    <script>
+        AOS.init();
+        
+        // معالجة نموذج الشكوى
+        document.getElementById('complaintForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('complaintName').value;
+            const type = document.getElementById('complaintType').value;
+            const subject = document.getElementById('complaintSubject').value;
+            const message = document.getElementById('complaintMessage').value;
+            const category = document.getElementById('complaintCategory').value;
+            const phone = document.getElementById('complaintPhone').value;
+            const priority = document.getElementById('complaintPriority').value;
+            
+            // حفظ الشكوى في localStorage
+            const complaint = {
+                id: Date.now(),
+                name: name,
+                type: type,
+                subject: subject,
+                message: message,
+                category: category,
+                phone: phone,
+                priority: priority,
+                date: new Date().toLocaleString('ar-EG'),
+                status: 'قيد المراجعة'
+            };
+            
+            // الحصول على الشكاوى الحالية أو إنشاء مصفوفة جديدة
+            let complaints = JSON.parse(localStorage.getItem('complaints')) || [];
+            complaints.push(complaint);
+            localStorage.setItem('complaints', JSON.stringify(complaints));
+            
+            // عرض رسالة نجاح
+            const typeText = {
+                'complaint': 'شكواك',
+                'suggestion': 'اقتراحك',
+                'inquiry': 'استفسارك',
+                'appreciation': 'رسالة الشكر'
+            };
+            
+            const successMessage = document.getElementById('successMessage');
+            const successText = document.getElementById('successText');
+            successText.textContent = `شكراً ${name}! تم استلام ${typeText[type]} بنجاح وسيتم الرد خلال 3 أيام عمل. رقم المتابعة: ${complaint.id}`;
+            successMessage.style.display = 'block';
+            
+            // إخفاء الرسالة بعد 5 ثواني
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+            
+            // إعادة تعيين النموذج
+            this.reset();
+        });
+    </script>
+</body>
+</html>

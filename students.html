@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل دخول الطالب - عبدالسند يمامة</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .login-section {
+            padding: 120px 5% 60px;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            transition: all 0.3s ease;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .login-header h2 {
+            color: #0066cc;
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        .login-header p {
+            color: #666;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: #0066cc;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.2);
+            outline: none;
+        }
+
+        .full-width {
+            width: 100%;
+        }
+
+        .login-footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .student-features {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f5f9ff;
+            border-radius: 10px;
+            border-right: 4px solid #0066cc;
+        }
+
+        .student-features h3 {
+            color: #0066cc;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .student-features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .student-features li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .student-features i {
+            color: #00c853;
+        }
+
+        .demo-accounts {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f0f7ff;
+            border-radius: 10px;
+            border-right: 4px solid #0066cc;
+        }
+
+        .demo-accounts h3 {
+            color: #0066cc;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .demo-accounts .account {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .demo-accounts .account:last-child {
+            margin-bottom: 0;
+        }
+
+        .account-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .account-name {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .account-details {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .use-account {
+            background: #0066cc;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .use-account:hover {
+            background: #004d99;
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <header class="header" id="header">
+        <div class="header-top">
+            <div class="logo" onclick="location.href='../index.html'">
+                <div class="logo-icon">AY</div>
+                <div class="logo-text">
+                    <h1>عبدالسند يمامة الثانوية المشتركة</h1>
+                    <p>تسجيل دخول الطالب</p>
+                </div>
+            </div>
+            
+            <div class="login-icons">
+                <a href="login_teacher.html" class="login-btn teacher">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span>تسجيل دخول معلم</span>
+                </a>
+                <a href="../index.html" class="login-btn secondary">
+                    <i class="fas fa-home"></i>
+                    <span>الرئيسية</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- قسم تسجيل الدخول -->
+    <section class="login-section">
+        <div class="login-container">
+            <div class="login-header">
+                <h2>تسجيل دخول الطالب</h2>
+                <p>أدخل بياناتك للوصول إلى منصتك التعليمية</p>
+            </div>
+            
+            <form class="login-form" id="studentLoginForm">
+                <div class="form-group">
+                    <label for="studentName">الاسم بالكامل</label>
+                    <input type="text" id="studentName" placeholder="اكتب اسمك الثلاثي">
+                </div>
+                
+                <div class="form-group">
+                    <label for="studentId">الرقم القومي</label>
+                    <input type="text" id="studentId" placeholder="الرقم القومي" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="studentGrade">الصف / الفصل</label>
+                    <input type="text" id="studentGrade" placeholder="مثال: 2 ثانوي - ب">
+                </div>
+                
+                <div class="form-group">
+                    <label for="studentPassword">كلمة المرور</label>
+                    <input type="password" id="studentPassword" placeholder="كلمة المرور" required>
+                </div>
+                
+                <button type="submit" class="btn primary full-width">
+                    <i class="fas fa-sign-in-alt"></i>
+                    تسجيل الدخول
+                </button>
+            </form>
+
+            <!-- حسابات تجريبية -->
+            <div class="demo-accounts">
+                <h3>حسابات تجريبية للاختبار:</h3>
+                <div class="account">
+                    <div class="account-header">
+                        <div class="account-name">أحمد محمد أحمد</div>
+                        <button class="use-account" data-id="12345678901234" data-password="student123">استخدم هذا الحساب</button>
+                    </div>
+                    <div class="account-details">
+                        الرقم القومي: 12345678901234 | كلمة المرور: student123
+                    </div>
+                </div>
+                <div class="account">
+                    <div class="account-header">
+                        <div class="account-name">سارة محمود عبدالله</div>
+                        <button class="use-account" data-id="12345678901235" data-password="student123">استخدم هذا الحساب</button>
+                    </div>
+                    <div class="account-details">
+                        الرقم القومي: 12345678901235 | كلمة المرور: student123
+                    </div>
+                </div>
+            </div>
+
+            <div class="student-features">
+                <h3>مميزات منصة الطلاب:</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> المشاركة في منتدى الطلاب</li>
+                    <li><i class="fas fa-check-circle"></i> متابعة الأنشطة المدرسية</li>
+                    <li><i class="fas fa-check-circle"></i> الاطلاع على آخر الأخبار</li>
+                    <li><i class="fas fa-check-circle"></i> تقديم الشكاوى والاقتراحات</li>
+                </ul>
+            </div>
+            
+            <div class="login-footer">
+                <p>إذا واجهتك مشكلة في الدخول، يرجى التواصل مع إدارة المدرسة</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="../auth.js"></script>
+    <script src="../script.js"></script>
+    <script>
+        AOS.init();
+        
+        // زر استخدام الحساب
+        document.querySelectorAll('.use-account').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const id = this.getAttribute('data-id');
+                const password = this.getAttribute('data-password');
+                
+                document.getElementById('studentId').value = id;
+                document.getElementById('studentPassword').value = password;
+                
+                // البحث عن اسم الطالب تلقائياً
+                const students = JSON.parse(localStorage.getItem('students'));
+                const student = students.find(s => s.id === id);
+                if (student) {
+                    document.getElementById('studentName').value = student.name;
+                    document.getElementById('studentGrade').value = student.grade;
+                }
+            });
+        });
+        
+        // معالجة نموذج تسجيل الدخول للطالب
+        document.getElementById('studentLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const studentId = document.getElementById('studentId').value;
+            const studentPassword = document.getElementById('studentPassword').value;
+            
+            // التحقق من بيانات الدخول
+            const student = authenticateStudent(studentId, studentPassword);
+            
+            if (student) {
+                // حفظ بيانات الطالب في localStorage
+                localStorage.setItem('currentStudent', JSON.stringify(student));
+                
+                // عرض رسالة نجاح
+                alert(`مرحباً ${student.name}! تم تسجيل الدخول بنجاح.`);
+                
+                // توجيه إلى صفحة المنتدى بعد تسجيل الدخول
+                setTimeout(() => {
+                    window.location.href = 'forum_students.html';
+                }, 1500);
+            } else {
+                alert('الرقم القومي أو كلمة المرور غير صحيحة!');
+            }
+        });
+    </script>
+</body>
+</html>

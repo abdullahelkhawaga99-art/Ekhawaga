@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة المدرسة - عبدالسند يمامة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+            direction: rtl;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .logo {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .logo-icon {
+            width: 80px;
+            height: 80px;
+            background: white;
+            color: #667eea;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 32px;
+            margin: 0 auto 15px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .logo p {
+            opacity: 0.9;
+        }
+        
+        .quick-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .quick-btn {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .quick-btn:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+        
+        .btn-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+        }
+        
+        .btn-content {
+            text-align: right;
+            flex: 1;
+        }
+        
+        .btn-content h3 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .btn-content p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .student .btn-icon { background: #4CAF50; }
+        .teacher .btn-icon { background: #2196F3; }
+        .activities .btn-icon { background: #FF9800; }
+        .news .btn-icon { background: #9C27B0; }
+        
+        .instructions {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: right;
+            border-right: 4px solid #4CAF50;
+        }
+        
+        .instructions h3 {
+            margin-bottom: 15px;
+            color: #4CAF50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .instructions ul {
+            list-style: none;
+            text-align: right;
+        }
+        
+        .instructions li {
+            margin-bottom: 12px;
+            padding-right: 10px;
+            position: relative;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .instructions li:before {
+            content: "•";
+            color: #4CAF50;
+            font-weight: bold;
+            position: absolute;
+            right: -15px;
+        }
+        
+        .whatsapp-share {
+            margin-top: 25px;
+            padding: 15px;
+            background: #25D366;
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-share:hover {
+            background: #128C7E;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <div class="logo-icon">AY</div>
+            <h1>عبدالسند يمامة الثانوية</h1>
+            <p>منصة المدرسة الإلكترونية</p>
+        </div>
+        
+        <div class="quick-links">
+            <a href="pages/login_student.html" class="quick-btn student">
+                <div class="btn-icon">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <div class="btn-content">
+                    <h3>دخول الطلاب</h3>
+                    <p>المنصة التعليمية للطلاب</p>
+                </div>
+            </a>
+            
+            <a href="pages/login_teacher.html" class="quick-btn teacher">
+                <div class="btn-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <div class="btn-content">
+                    <h3>دخول المعلمين</h3>
+                    <p>منصة المعلمين والإدارة</p>
+                </div>
+            </a>
+            
+            <a href="pages/activities.html" class="quick-btn activities">
+                <div class="btn-icon">
+                    <i class="fas fa-running"></i>
+                </div>
+                <div class="btn-content">
+                    <h3>الأنشطة</h3>
+                    <p>اكتشف الأنشطة المدرسية</p>
+                </div>
+            </a>
+            
+            <a href="pages/news.html" class="quick-btn news">
+                <div class="btn-icon">
+                    <i class="fas fa-newspaper"></i>
+                </div>
+                <div class="btn-content">
+                    <h3>أخبار المدرسة</h3>
+                    <p>آخر المستجدات والإعلانات</p>
+                </div>
+            </a>
+        </div>
+        
+        <div class="instructions">
+            <h3><i class="fas fa-info-circle"></i> تعليمات سريعة:</h3>
+            <ul>
+                <li>للدخول كطالب: الرقم 12345678901234 والرقم السري student123</li>
+                <li>للدخول كمعلم: الرقم 12345678901236 والرقم السري teacher123</li>
+                <li>جميع البيانات تحفظ على جهازك فقط</li>
+                <li>التصميم متوافق مع جميع الأجهزة</li>
+            </ul>
+        </div>
+        
+        <a href="#" class="whatsapp-share" onclick="shareOnWhatsApp()">
+            <i class="fab fa-whatsapp"></i>
+            مشاركة الرابط على واتساب
+        </a>
+    </div>
+
+    <script>
+        // مشاركة الرابط على واتساب
+        function shareOnWhatsApp() {
+            const currentUrl = window.location.href;
+            const message = `منصة عبدالسند يمامة الثانوية الإلكترونية\n${currentUrl}`;
+            const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+        
+        // إضافة تأثيرات عند التحميل
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.quick-btn');
+            buttons.forEach((button, index) => {
+                button.style.animationDelay = `${index * 0.1}s`;
+                button.style.opacity = '0';
+                button.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    button.style.transition = 'all 0.5s ease';
+                    button.style.opacity = '1';
+                    button.style.transform = 'translateY(0)';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>

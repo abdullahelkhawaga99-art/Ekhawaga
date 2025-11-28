@@ -1,0 +1,398 @@
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأنشطة - عبدالسند يمامة</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .activities-section {
+            padding: 80px 5%;
+        }
+        
+        .activity-category {
+            margin-bottom: 80px;
+        }
+        
+        .category-title {
+            color: var(--primary-dark);
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            border-bottom: 3px solid var(--secondary);
+            padding-bottom: 15px;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .activity-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .activity-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .activity-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: translateX(-100%);
+        }
+        
+        .activity-card:hover .activity-image::before {
+            animation: shine 1.5s ease;
+        }
+        
+        @keyframes shine {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+        
+        .activity-content {
+            padding: 25px;
+        }
+        
+        .activity-content h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .activity-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .activity-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--gray);
+            font-size: 0.9rem;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .activity-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .activity-status {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .coming-soon {
+            background: #ff6b6b !important;
+            color: white !important;
+        }
+        
+        .fade-in-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <header class="header" id="header">
+        <div class="header-top">
+            <div class="logo" onclick="location.href='../index.html'">
+                <div class="logo-icon">AY</div>
+                <div class="logo-text">
+                    <h1>عبدالسند يمامة الثانوية المشتركة</h1>
+                    <p>الأنشطة المدرسية</p>
+                </div>
+            </div>
+            
+            <div class="login-icons">
+                <a href="login_student.html" class="login-btn student">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>تسجيل دخول طالب</span>
+                </a>
+                <a href="login_teacher.html" class="login-btn teacher">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span>تسجيل دخول معلم</span>
+                </a>
+            </div>
+        </div>
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="../index.html">الرئيسية</a></li>
+                <li><a href="activities.html" class="active">الأنشطة</a></li>
+                <li><a href="news.html">الأخبار</a></li>
+                <li><a href="complaints.html">الشكاوى</a></li>
+                <li><a href="forum_students.html">منتدى الطلاب</a></li>
+                <li><a href="forum_teachers.html">منتدى المعلمين</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- رأس الصفحة -->
+    <section class="page-header">
+        <h1 data-aos="fade-down">الأنشطة المدرسية</h1>
+        <p data-aos="fade-up">اكتشف مجموعة الأنشطة والمسابقات المدرسية المتنوعة التي تنظمها مدرستنا</p>
+    </section>
+
+    <!-- قسم الأنشطة -->
+    <section class="activities-section">
+        <div class="activity-category" data-aos="fade-right">
+            <h2 class="category-title">الأنشطة العلمية</h2>
+            <div class="activity-grid">
+                <div class="activity-card fade-in-element">
+                    <div class="activity-image">
+                        <i class="fas fa-flask"></i>
+                        <div class="activity-status">نشط</div>
+                    </div>
+                    <div class="activity-content">
+                        <h3>مسابقة العلوم</h3>
+                        <p>مسابقة علمية سنوية تشمل تجارب الكيمياء والفيزياء والأحياء. فرصة رائعة لاكتشاف مواهبك العلمية والمشاركة في تجارب مبتكرة.</p>
+                        <div class="activity-meta">
+                            <span><i class="fas fa-calendar"></i> 15 ديسمبر 2023</span>
+                            <span><i class="fas fa-users"></i> 40 طالب</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="activity-card fade-in-element">
+                    <div class="activity-image">
+                        <i class="fas fa-robot"></i>
+                        <div class="activity-status">نشط</div>
+                    </div>
+                    <div class="activity-content">
+                        <h3>نادي الروبوتات</h3>
+                        <p>تعلم برمجة وتصميم الروبوتات للمشاركة في المسابقات المحلية والدولية. تطوير مهارات التفكير المنطقي والإبداع التكنولوجي.</p>
+                        <div class="activity-meta">
+                            <span><i class="fas fa-calendar"></i> كل ثلاثاء</span>
+                            <span><i class="fas fa-users"></i> 25 طالب</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="activity-card fade-in-element">
+                    <div class="activity-image">
+                        <i class="fas fa-microscope"></i>
+                        <div class="activity-status coming-soon">قريباً</div>
+                    </div>
+                    <div class="activity-content">
+                        <h3>معرض المشاريع العلمية</h3>
+                        <p>عرض لأفضل المشاريع العلمية المبتكرة من طلاب المدرسة. فرصة لعرض إبداعاتك واكتساب خبرة في العرض والتقديم.</p>
+                        <div class="activity-meta">
+                            <span><i class="fas fa-calendar"></i> 20 يناير 2024</span>
+                            <span><i class="fas fa-users"></i> 60 طالب</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="activity-category" data-aos="fade-left">
+            <h2 class="category-title">الأنشطة الرياضية</h2>
+            <div class="activity-grid">
+                <div class="activity-card fade-in-element">
+                    <div class="activity-image">
+                        <i class="fas fa-futbol"></i>
+                        <div class="activity-status">نشط</div>
+                    </div>
+                    <div class="activity-content">
+                        <h3>بطولة كرة القدم</h3>
+                        <p>مسابقة كرة القدم بين فصول المدرسة بمشاركة جميع الطلاب. تنافس شريف وتعزيز روح الفريق واللياقة البدنية.</p>
+                        <div class="activity-meta">
+                            <span><i class="fas fa-calendar"></i> من 10-15 نوفمبر</span>
+                            <span><i class="fas fa-users"></i> 120 طالب</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="activity-card fade-in-element">
+                    <div class="activity-image">
+                        <i class="fas fa-basketball-ball"></i>
+                        <div class="activity-status">نشط</div>
+                    </div>
+                    <div class="activity-content">
+                        <h3>مسابقة كرة السلة</h3>
+                        <p>منافسات كرة السلة للبنين والبنات على مستوى الفصول. تطوير المهارات الرياضية وتعزيز الصحة البدنية.</p>
+                        <div class="activity-meta">
+                            <span><i class="fas fa-calendar"></i> من 5-10 ديسمبر</span>
+                            <span><i class="fas fa-users"></i> 80 طالب</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="activity-card fade-in-element">
+                    <div class="activity-image">
+                        <i class="fas fa-running"></i>
+                        <div class="activity-status">نشط</div>
+                    </div>
+                    <div class="activity-content">
+                        <h3>ماراثون المدرسة</h3>
+                        <p>سباق الجري السنوي لتعزيز اللياقة البدنية والروح الرياضية. مسافات متنوعة تناسب جميع المستويات.</p>
+                        <div class="activity-meta">
+                            <span><i class="fas fa-calendar"></i> 25 نوفمبر 2023</span>
+                            <span><i class="fas fa-users"></i> 200 طالب</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="activity-category" data-aos="fade-right">
+            <h2 class="category-title">الأنشطة الثقافية والفنية</h2>
+            <div class="activity-grid">
+                <div class="activity-card fade-in-element">
+                    <div class="activity-image">
+                        <i class="fas fa-theater-masks"></i>
+                        <div class="activity-status">نشط</div>
+                    </div>
+                    <div class="activity-content">
+                        <h3>المسرح المدرسي</h3>
+                        <p>عروض مسرحية يقدمها الطلاب تعكس التراث والقيم المجتمعية. تطوير المهارات الإبداعية والثقة بالنفس.</p>
+                        <div class="activity-meta">
+                            <span><i class="fas fa-calendar"></i> 30 ديسمبر 2023</span>
+                            <span><i class="fas fa-users"></i> 30 طالب</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="activity-card fade-in-element">
+                    <div class="activity-image">
+                        <i class="fas fa-palette"></i>
+                        <div class="activity-status coming-soon">قريباً</div>
+                    </div>
+                    <div class="activity-content">
+                        <h3>معرض الرسم والفنون</h3>
+                        <p>عرض للإبداعات الفنية واللوحات التشكيلية للطلاب الموهوبين. فرصة لعرض مواهبك الفنية وتطويرها.</p>
+                        <div class="activity-meta">
+                            <span><i class="fas fa-calendar"></i> 15 يناير 2024</span>
+                            <span><i class="fas fa-users"></i> 45 طالب</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="activity-card fade-in-element">
+                    <div class="activity-image">
+                        <i class="fas fa-music"></i>
+                        <div class="activity-status">نشط</div>
+                    </div>
+                    <div class="activity-content">
+                        <h3>فرقة الإنشاد</h3>
+                        <p>فرقة الإنشاد الديني التي تشارك في الاحتفالات والمناسبات. تنمية المواهب الصوتية والتعريف بالتراث الإسلامي.</p>
+                        <div class="activity-meta">
+                            <span><i class="fas fa-calendar"></i> كل أحد</span>
+                            <span><i class="fas fa-users"></i> 20 طالب</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo-icon">AY</div>
+                <div class="logo-text">
+                    <h3>عبدالسند يمامة الثانوية المشتركة</h3>
+                    <p>مدرسة رائدة في تقديم التعليم المتميز</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="activities.html">الأنشطة</a>
+                <a href="news.html">الأخبار</a>
+                <a href="complaints.html">الشكاوى</a>
+            </div>
+            <div class="footer-info">
+                <p><i class="fas fa-phone"></i> 01234567890</p>
+                <p><i class="fas fa-envelope"></i> info@abdsand-school.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> محافظة ×× – مدينة ××</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة &copy; 2023 عبدالسند يمامة الثانوية المشتركة</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="../auth.js"></script>
+    <script src="../script.js"></script>
+    <script>
+        AOS.init();
+        
+        // تأثير الظهور عند التمرير
+        const fadeElements = document.querySelectorAll('.fade-in-element');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html> 

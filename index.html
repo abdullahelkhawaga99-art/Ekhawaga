@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <!-- رابط صفحة الموبايل -->
+<link rel="canonical" href="mobile.html">
+
+<!-- Open Graph للشير على الواتساب -->
+<meta property="og:title" content="عبدالسند يمامة الثانوية المشتركة">
+<meta property="og:description" content="منصة المدرسة الإلكترونية - تسجيل دخول الطلاب والمعلمين">
+<meta property="og:image" content="https://example.com/logo.png">
+<meta property="og:url" content="https://example.com">
+<meta property="og:type" content="website">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="عبدالسند يمامة الثانوية">
+<meta name="twitter:description" content="منصة المدرسة الإلكترونية">
+
+<!-- أيقونة الموقع -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏫</text></svg>">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عبدالسند يمامة الثانوية المشتركة</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Wave Header Background -->
+    <div class="wave-background">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+        <div class="wave wave4"></div>
+    </div>
+
+    <!-- الشريط العلوي المتحرك -->
+    <header class="header" id="header">
+        <div class="header-top">
+            <div class="logo" onclick="location.href='index.html'">
+                <div class="logo-icon">AY</div>
+                <div class="logo-text">
+                    <h1>عبدالسند يمامة الثانوية المشتركة</h1>
+                    <p>Abdelsand Yamama Secondary School</p>
+                </div>
+            </div>
+            
+            <div class="login-icons">
+                <a href="pages/login_student.html" class="login-btn student floating">
+                    <i class="fas fa-user-graduate"></i>
+                    <span>تسجيل دخول طالب</span>
+                </a>
+                <a href="pages/login_teacher.html" class="login-btn teacher floating">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span>تسجيل دخول معلم</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- شريط التنقل -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="pages/activities.html" class="nav-link">الأنشطة</a></li>
+                <li><a href="pages/news.html" class="nav-link">الأخبار</a></li>
+                <li><a href="pages/complaints.html" class="nav-link">الشكاوى</a></li>
+                <li><a href="pages/forum_students.html" class="nav-link">منتدى الطلاب</a></li>
+                <li><a href="pages/forum_teachers.html" class="nav-link">منتدى المعلمين</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- قسم الترحيب الرئيسي -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="typing-text">أهلاً بكم في عبدالسند يمامة</h2>
+            <p class="fade-in">اكتشفوا آخر الأخبار والأنشطة والمسابقات في مدرستنا</p>
+            <div class="hero-buttons">
+                <a href="pages/login_student.html" class="btn primary floating">
+                    <i class="fas fa-user-graduate"></i>
+                    دخول الطلاب
+                </a>
+                <a href="pages/login_teacher.html" class="btn secondary floating">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    دخول المعلمين
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="floating-school">
+                <i class="fas fa-school"></i>
+                <p>صورة المدرسة</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- الأقسام الرئيسية -->
+    <section class="sections">
+        <h2 class="section-title">أقسام الموقع</h2>
+        <div class="cards-container">
+            <!-- الأنشطة -->
+            <a href="pages/activities.html" class="card-link">
+                <div class="card fly-in">
+                    <div class="card-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h3>الأنشطة</h3>
+                    <p>اكتشف الأنشطة المدرسية والمسابقات</p>
+                </div>
+            </a>
+            
+            <!-- الأخبار -->
+            <a href="pages/news.html" class="card-link">
+                <div class="card fly-in" style="animation-delay: 0.1s">
+                    <div class="card-icon">
+                        <i class="fas fa-newspaper"></i>
+                    </div>
+                    <h3>الأخبار</h3>
+                    <p>آخر المستجدات والإعلانات المدرسية</p>
+                </div>
+            </a>
+            
+            <!-- الشكاوى -->
+            <a href="pages/complaints.html" class="card-link">
+                <div class="card fly-in" style="animation-delay: 0.2s">
+                    <div class="card-icon">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <h3>الشكاوى</h3>
+                    <p>قدم شكواك أو اقتراحك لإدارة المدرسة</p>
+                </div>
+            </a>
+            
+            <!-- منتدى الطلاب -->
+            <a href="pages/forum_students.html" class="card-link">
+                <div class="card fly-in" style="animation-delay: 0.3s">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>منتدى الطلاب</h3>
+                    <p>مكان للتواصل وتبادل الخبرات بين الطلاب</p>
+                </div>
+            </a>
+            
+            <!-- منتدى المعلمين -->
+            <a href="pages/forum_teachers.html" class="card-link">
+                <div class="card fly-in" style="animation-delay: 0.4s">
+                    <div class="card-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>منتدى المعلمين</h3>
+                    <p>منصة للمعلمين لتبادل الخبرات والتواصل</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- تذييل الصفحة -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <div class="logo-icon">AY</div>
+                <div class="logo-text">
+                    <h3>عبدالسند يمامة الثانوية المشتركة</h3>
+                    <p>مدرسة رائدة في تقديم التعليم المتميز</p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <a href="pages/activities.html">الأنشطة</a>
+                <a href="pages/news.html">الأخبار</a>
+                <a href="pages/complaints.html">الشكاوى</a>
+            </div>
+            <div class="footer-info">
+                <p><i class="fas fa-phone"></i> 01234567890</p>
+                <p><i class="fas fa-envelope"></i> info@abdsand-school.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> محافظة ×× – مدينة ××</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة &copy; 2023 عبدالسند يمامة الثانوية المشتركة</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // التأكد من أن الروابط تعمل بشكل صحيح
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('تم تحميل الصفحة الرئيسية بنجاح');
+            
+            // إضافة مستمعين للأحداث لزر تسجيل الدخول
+            const studentLoginBtn = document.querySelector('a[href="pages/login_student.html"]');
+            const teacherLoginBtn = document.querySelector('a[href="pages/login_teacher.html"]');
+            
+            if (studentLoginBtn) {
+                studentLoginBtn.addEventListener('click', function(e) {
+                    console.log('تم النقر على زر دخول الطلاب');
+                    // سيتم التوجيه تلقائياً عبر الرابط
+                });
+            }
+            
+            if (teacherLoginBtn) {
+                teacherLoginBtn.addEventListener('click', function(e) {
+                    console.log('تم النقر على زر دخول المعلمين');
+                    // سيتم التوجيه تلقائياً عبر الرابط
+                });
+            }
+        });
+    </script>
+</body>
+</html>
